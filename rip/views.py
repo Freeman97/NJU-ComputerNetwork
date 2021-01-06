@@ -15,7 +15,7 @@ def routeTable(request, router):
     name = request.method
     ret = []
     if name == 'GET':
-        telnetUtil.test.showIpRoute("192.168.3.1",password)
+        #telnetUtil.test.showIpRoute("192.168.3.1",password)
         router = '192.168.3.2'
         intType = 'f0'
         intId = '/0'
