@@ -7,4 +7,5 @@ class cors_middleware:
     def __call__(self, request):
         response = self.get_response(request)
         response['Access-Control-Allow-Origin'] = '*'
+        response['Access-Control-Allow-Methods'] = 'POST,GET,OPTIONS,PATCH'
         return response
