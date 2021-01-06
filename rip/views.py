@@ -41,7 +41,7 @@ def routeTable(request, router):
         # netList = "rta"
 
         # 调用工具类配置
-        telnetUtil.test.configRIP(routers[router], password, netList)
+        #telnetUtil.test.configRIP(routers[router], password, netList)
 
         # 返回配置结果
         result = ''
