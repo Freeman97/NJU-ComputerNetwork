@@ -1,0 +1,179 @@
+@import "icon";
+@import "btn";
+@import "fontSize";
+#app,.wrapper,html,body{
+  width: 100%;
+  height: 100%;
+}
+html,body,p,ul,li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+//flex相关
+.flexBox{
+  display: flex;
+}
+.flexCol{
+  flex-direction: column;
+}
+.flexwrap{
+  flex-wrap: wrap;
+}
+.flex1{
+  flex: 1;
+}
+.flex2{
+  flex: 2;
+}
+.flex3{
+  flex: 3;
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.colCenter{
+  display: flex;
+  align-items: center;
+}
+.flexColBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.autoBox{
+  overflow: auto;
+}
+.text-center{
+    text-align: center;
+}
+.initInput{
+  outline: none;
+  border: none;
+}
+
+.modelPadding{
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+.boxSizing{
+  box-sizing: border-box;
+}
+// 颜色
+.bgred{
+    background: red;
+}
+.bgGrey{
+    background: grey;
+}
+.bgNote{
+    background: #dddddd;
+}
+.bgBlack{
+    background: black;
+}
+.bgWhite{
+    background: #fff;
+}
+.bgOrange{
+  background: orangered;
+}
+.colorWhite{
+    color: white;
+}
+.colorRed{
+    color: red;
+}
+.colorNote{
+  color: #999999;
+}
+.border{
+    border: 1px solid #CCCCCC;
+}
+.border-right{
+  border-right: 1px solid #CCCCCC;
+}
+.border-left{
+  border-left: 1px solid #CCCCCC;
+}
+.border-top{
+  border-top: 1px solid #CCCCCC;
+}
+
+//宽高定制
+.height40{
+  height: 40px;
+}
+.height50{
+  height: 50px;
+}
+.height70{
+  height: 70px;
+}
+
+.height100{
+  height: 100px;
+}
+.height150{
+    height: 150px;
+}
+.height200{
+    height: 200px;
+}
+.width60{
+  width: 60px;
+}
+
+// 边距
+.margin-top20{
+    margin-top: 20px;
+}
+.margin-left20{
+  margin-left: 20px;
+}
+.margin{
+  margin: 10px;
+}
+.margin5{
+  margin: 5px;
+}
+.padding{
+  padding: 10px;
+}
+.padding5{
+  padding: 5px;
+}
+.padding-left{
+  padding-left: 10px;
+}
+.padding-right{
+  padding-right: 10px;
+}
+.padding-top{
+  padding-top: 10px;
+}
+.padding-bottom{
+  padding-bottom: 10px;
+}
+.border-bottom{
+  border-bottom: 1px solid #CCCCCC;
+}
+
+
+.imgDefault{
+  width: 100%;
+  height: 100%;
+}
+
+//font定制
+.font20{
+  font-size: 20px;
+}
+.font14{
+  font-size: 14px;
+}
