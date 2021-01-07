@@ -174,12 +174,157 @@ export default {
                     break;
             }
             console.log(params);
+            if (params[0]=='A'&&params[1]=='f'&&params[2]=='0')
             this.$http
-                .get("http://127.0.0.1:80/api/", {
-                    params: {
-                       // opr: this.activeItem.key,
-                        params
-                    }
+                .get("http://127.0.0.1:80/api/router/A/f/0",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if (params[0]=='B'&&params[1]=='f'&&params[2]=='0')
+            this.$http
+                .get("http://127.0.0.1:80/api/router/B/f/0",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if(params[0]=='C'&&params[1]=='f'&&params[2]=='0')       
+            this.$http
+                .get("http://127.0.0.1:80/api/router/C/f/0",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if (params[0]=='A'&&params[1]=='f'&&params[2]=='1')
+            this.$http
+                .get("http://127.0.0.1:80/api/router/A/f/1",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if (params[0]=='B'&&params[1]=='f'&&params[2]=='1')
+            this.$http
+                .get("http://127.0.0.1:80/api/router/B/f/1",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if(params[0]=='C'&&params[1]=='f'&&params[2]=='1')       
+            this.$http
+                .get("http://127.0.0.1:80/api/router/C/f/1",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if (params[0]=='A'&&params[1]=='s'&&params[2]=='0')
+            this.$http
+                .get("http://127.0.0.1:80/api/router/A/s/0",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if (params[0]=='B'&&params[1]=='s'&&params[2]=='0')
+            this.$http
+                .get("http://127.0.0.1:80/api/router/B/s/0",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if(params[0]=='C'&&params[1]=='s'&&params[2]=='0')       
+            this.$http
+                .get("http://127.0.0.1:80/api/router/C/s/0",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if (params[0]=='A'&&params[1]=='s'&&params[2]=='1')
+            this.$http
+                .get("http://127.0.0.1:80/api/router/A/s/1",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if (params[0]=='B'&&params[1]=='s'&&params[2]=='1')
+            this.$http
+                .get("http://127.0.0.1:80/api/router/B/s/1",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if(params[0]=='C'&&params[1]=='s'&&params[2]=='1')       
+            this.$http
+                .get("http://127.0.0.1:80/api/router/C/s/1",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
                 })
                 .then(res => {
                     this.resData = JSON.stringify(res.data).split(",");

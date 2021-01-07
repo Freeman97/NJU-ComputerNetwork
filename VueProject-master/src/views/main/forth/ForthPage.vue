@@ -167,12 +167,40 @@ export default {
                     break;
             }
             console.log(params);
+            if (params[0]=='A')
             this.$http
-                .get("http://127.0.0.1:80/api/", {
-                    params: {
-                        opr: this.activeItem.key,
-                        params
-                    }
+                .patch("http://127.0.0.1:80/api/router/A",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else if (params[0]=='B')
+            this.$http
+                .patch("http://127.0.0.1:80/api/router/B",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
+                })
+                .then(res => {
+                    this.resData = JSON.stringify(res.data).split(",");
+                    console.log(this.resData);
+                })
+                else        
+            this.$http
+                .patch("http://127.0.0.1:80/api/router/C",
+                {
+                    // params: {
+                    //    // opr: this.activeItem.key,
+                    //     params
+                    // }
                 })
                 .then(res => {
                     this.resData = JSON.stringify(res.data).split(",");
