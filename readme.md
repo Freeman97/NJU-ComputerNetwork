@@ -47,6 +47,24 @@ GET router/{router}/{interfaceType}/{interfaceId}
 // 404: 指定的路由器或接口不存在
 ```
 
+### 获取单个路由器上所有接口的配置信息
+```js
+GET router/{router}/interfaces
+```
+返回所有接口的配置信息
+```js
+[
+    ...
+    {
+        'ipAddress': '10.0.0.0',
+        'subnetMask': '255.0.0.0',
+        'subnetInt': '8',
+        'status': 'true'
+    },
+    ...
+]
+```
+
 ### 获取单个路由器的路由表信息
 获取单个路由器中的整个路由表，返回数组，数组的每一项是一条路由表条目
 ```js
