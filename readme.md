@@ -41,7 +41,7 @@ GET router/{router}/{interfaceType}/{interfaceId}
 {
     'ipAddress': '10.0.0.0',
     'subnetMask': '255.0.0.0',
-    'ifIpFastSwitching': 'true',
+    'subnetInt': '8',
     'status': 'true'
 }
 // 404: 指定的路由器或接口不存在
@@ -101,4 +101,15 @@ POST /ippacket
 {
     'ipAddress': '10.0.0.1'
 }
+```
+
+## 输出样例
+### 接口信息
+```
+"show int s0/0/0\r\nSerial0/0/0 is down, line protocol is down \r\n  Hardware is GT96K Serial\r\n  Internet address is 192.168.2.2/24\r\n  MTU"
+```
+
+### 路由表
+```
+"show ip route\r\nCodes: C - connected, S - static, R - RIP, M - mobile, B - BGP\r\n       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area \r\n       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2\r\n       E1 - OSPF external type 1, E2 - OSPF external type 2\r\n       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2\r\n       ia - IS-IS inter area, * - candidate default, U - per-user static route\r\n       o - ODR, P - periodic downloaded static route\r\n\r\nGateway of last resort is not set\r\n\r\nC    192.168.3.0/24 is directly connected, FastEthernet0/1\r\nRouter>"
 ```
