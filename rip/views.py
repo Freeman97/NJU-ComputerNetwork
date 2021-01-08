@@ -24,7 +24,7 @@ def routeTable(request, router):
 
         # 从请求url获取参数
         netList = json.loads(request.body)['netList']
-
+        print(netList)
         # 调用工具类配置
         telnetUtil.test.configRIP(routers[router], password, netList)
 
@@ -78,7 +78,7 @@ def get_interfaces(request, router):
                 temp['ipAddress'] = ip_and_mask[0]
                 temp['subnetInt'] = ip_and_mask[1]
                 full_mask = telnetUtil.test.getIntIpMask(text)[1]
-                temp['subnetMask'] = full_mask[1]
+                temp['subnetMask'] = full_mask
             temp['status'] = telnetUtil.test.isUp(text)
             ret.append(temp)
         return JsonResponse(ret, safe=False, json_dumps_params={'ensure_ascii': False})
@@ -90,7 +90,7 @@ def match_ip_address(ipstr):
     if ip_str == None:
         return None
     split_ip_str = ip_str.group().split('/')
-    return ip_str[0], ip_str[1]
+    return split_ip_str[0], split_ip_str[1]
 
 
 def set_interface(request, router, intType, intId):
@@ -118,18 +118,18 @@ def set_interface(request, router, intType, intId):
         telnetUtil.test.configInt(router, password, intType, intId, ip, mask)
         temp = telnetUtil.test.showInterface(router, password, intType, intId)
         ip_and_mask = match_ip_address(temp)
-        full_mask = telnetUtil.test.getIntIpMask(temp)
+        full_mask = telnetUtil.test.getIntIpMask(temp)[1]
         ret['ipAddress'] = ip_and_mask[0]
-        ret['subnetMask'] = full_mask[1]
+        ret['subnetMask'] = full_mask
         ret['subnetInt'] = ip_and_mask[1]
         ret['status'] = telnetUtil.test.isUp(temp)
         return JsonResponse(ret, safe=False, json_dumps_params={'ensure_ascii': False})
     elif request.method == 'GET':
         temp = telnetUtil.test.showInterface(router, password, intType, intId)
         ip_and_mask = match_ip_address(temp)
-        full_mask = telnetUtil.test.getIntIpMask(temp)
+        full_mask = telnetUtil.test.getIntIpMask(temp)[1]
         ret['ipAddress'] = ip_and_mask[0]
-        ret['subnetMask'] = full_mask[1]
+        ret['subnetMask'] = full_mask
         ret['subnetInt'] = ip_and_mask[1]
         ret['status'] = telnetUtil.test.isUp(temp)
         return JsonResponse(ret, safe=False, json_dumps_params={'ensure_ascii': False})
