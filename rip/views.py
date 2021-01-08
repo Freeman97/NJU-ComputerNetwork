@@ -31,6 +31,8 @@ def routeTable(request, router):
         # 返回配置结果
         ret = telnetUtil.test.showIpRoute(routers[router], password)
         return JsonResponse(ret, safe=False, json_dumps_params={'ensure_ascii': False})
+    elif name == 'OPTIONS':
+        return HttpResponse({})
 
 
 
@@ -60,18 +62,23 @@ def get_interfaces(request, router):
         router = routers[router]
         arr = []
         ret = []
+        ints = ['f0/0', 'f0/1', 's0/0/0', 's0/0/1']
         arr.append(telnetUtil.test.showInterface(router, password, 'f0', '/0'))
         arr.append(telnetUtil.test.showInterface(router, password, 'f0', '/1'))
         arr.append(telnetUtil.test.showInterface(router, password, 's0', '/0/0'))
         arr.append(telnetUtil.test.showInterface(router, password, 's0', '/0/1'))
         # regular expression pattern search
+        i = 0
         for text in arr:
             temp = {}
             ip_and_mask = match_ip_address(text)
-            full_mask = telnetUtil.test.getIntIpMask(text)[1]
-            temp['ipAddress'] = ip_and_mask[0]
-            temp['subnetMask'] = full_mask[1]
-            temp['subnetInt'] = ip_and_mask[1]
+            temp['interface'] = ints[i]
+            i += 1
+            if ip_and_mask != None:
+                temp['ipAddress'] = ip_and_mask[0]
+                temp['subnetInt'] = ip_and_mask[1]
+                full_mask = telnetUtil.test.getIntIpMask(text)[1]
+                temp['subnetMask'] = full_mask[1]
             temp['status'] = telnetUtil.test.isUp(text)
             ret.append(temp)
         return JsonResponse(ret, safe=False, json_dumps_params={'ensure_ascii': False})
@@ -79,7 +86,10 @@ def get_interfaces(request, router):
 def match_ip_address(ipstr):
     # 返回匹配出的ip地址和子网掩码
     ip_pattern = re.compile(r'((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}/[0-9]{1,2}')
-    ip_str = ip_pattern.search(ipstr).group().split('/')
+    ip_str = ip_pattern.search(ipstr)
+    if ip_str == None:
+        return None
+    split_ip_str = ip_str.group().split('/')
     return ip_str[0], ip_str[1]
 
 
@@ -90,6 +100,7 @@ def set_interface(request, router, intType, intId):
     if intType == 's':
         intId = '/0' + '/' + intId
     intType = intType + '0'
+    ret = {}
     if request.method == 'PATCH':
         # router 路由器ip, password 密码, intType 接口类型, intId 接口号, ip 配置ip, mask 掩码
         # 从请求url获取参数
@@ -111,7 +122,7 @@ def set_interface(request, router, intType, intId):
         ret['ipAddress'] = ip_and_mask[0]
         ret['subnetMask'] = full_mask[1]
         ret['subnetInt'] = ip_and_mask[1]
-        ret['status'] = telnetUtil.test.isUp(ret)
+        ret['status'] = telnetUtil.test.isUp(temp)
         return JsonResponse(ret, safe=False, json_dumps_params={'ensure_ascii': False})
     elif request.method == 'GET':
         temp = telnetUtil.test.showInterface(router, password, intType, intId)
@@ -120,7 +131,7 @@ def set_interface(request, router, intType, intId):
         ret['ipAddress'] = ip_and_mask[0]
         ret['subnetMask'] = full_mask[1]
         ret['subnetInt'] = ip_and_mask[1]
-        ret['status'] = telnetUtil.test.isUp(ret)
+        ret['status'] = telnetUtil.test.isUp(temp)
         return JsonResponse(ret, safe=False, json_dumps_params={'ensure_ascii': False})
     elif request.method == 'OPTIONS':
         return HttpResponse({})

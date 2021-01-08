@@ -56,6 +56,7 @@ GET router/{router}/interfaces
 [
     ...
     {
+        'interface': 'f0/0'
         'ipAddress': '10.0.0.0',
         'subnetMask': '255.0.0.0',
         'subnetInt': '8',
