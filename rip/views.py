@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.http.response import JsonResponse
+from django.http.response import JsonResponse, FileResponse
 import telnetUtil.test
 import json
 import re
@@ -135,3 +135,21 @@ def set_interface(request, router, intType, intId):
         return JsonResponse(ret, safe=False, json_dumps_params={'ensure_ascii': False})
     elif request.method == 'OPTIONS':
         return HttpResponse({})
+
+def disable_route_cache(request, router):
+    if request.method == 'GET':
+        telnetUtil.test.close(routers[router], password)
+        return HttpResponse()
+
+def send_packet(request, router):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        ip = data['ipAddress']
+        filterSubnet = data['filterSubnet']
+        telnetUtil.test.debug(routers[router], password, filterSubnet, ip)
+        file = open('result.txt', 'rb')
+        response = HttpResponse(file)
+        # response['Content-Disposition'] = 'attachment;filename="result.txt"'
+        return response
+    elif request.method == 'OPTIONS':
+        return HttpResponse()

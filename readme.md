@@ -101,24 +101,17 @@ PATCH /router/{router}
 ```
 
 ## 验证负载均衡部分
-### 捕获经过路由器B的数据包信息
+### 关闭指定路由器上所有接口的快速交换功能
 ```js
-GET /ippacket
-```
-返回数组形式的数据包信息
-```
-[
-    {
-
-    }
-]
+GET /router/{router}/noroutecache
 ```
 
-### 向单个IP地址发送ping数据包
+### 指定路由器向单个IP地址发送ping数据包并捕获与指定子网有关的信息
 ```js
-POST /ippacket
+POST /router/{router}/ippacket
 {
-    'ipAddress': '10.0.0.1'
+    'ipAddress': '10.0.0.1',
+    'filterSubnet': '10.0.0.0'
 }
 ```
 
