@@ -12,12 +12,15 @@ Sending 5, 100-byte ICMP Echos to 10.0.0.1, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 16/16/16 ms
 Router#
-*Jan  1 07:09:33.882: %SYS-5-CONFIG_I: Configured from console by vty0 (192.168.3.102)
-*Jan  1 07:09:33.930: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/0), len 100, sending
-*Jan  1 07:09:33.930: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/0), len 100, sending full packet
-*Jan  1 07:09:33.946: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/0), len 100, sending
-*Jan  1 07:09:33.950: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/0), len 100, sending full packet
-*Jan  1 07:09:33.966: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/0), len 100, sending
-*Jan  1 07:09:33.966: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/0), len 100, sending full packet
-*Jan  1 07:09:33.982: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/0), len 100, sendingundebug all
+*Jan  1 08:50:19.399: %SYS-5-CONFIG_I: Configured from console by vty0 (192.168.3.102)
+*Jan  1 08:50:19.463: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending
+*Jan  1 08:50:19.463: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending full packet
+*Jan  1 08:50:19.479: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending
+*Jan  1 08:50:19.479: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending full packet
+*Jan  1 08:50:19.495: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending
+*Jan  1 08:50:19.495: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending full packet
+*Jan  1 08:50:19.511: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending
+*Jan  1 08:50:19.515: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending full packet
+*Jan  1 08:50:19.531: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending
+*Jan  1 08:50:19.531: IP: s=192.168.1.1 (local), d=10.0.0.1 (Serial0/0/1), len 100, sending full packetundebug all
 All possible
